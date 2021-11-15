@@ -4,6 +4,19 @@
 // Variables
 // --------------------------------------------------
 
+//Sutton Mencap Pallette
+//primary
+@a: #a8084d;
+@a: #9c9A00;
+//secondary
+@a: #bed600;
+@a: #e6b012;
+@a: #dc0451;
+@a: #b591d6;
+@a: #7aabde;
+@a: #009aa6;
+@a: #988f86;
+
 
 //== Colors
 //
@@ -16,29 +29,11 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+@brand-primary:         #a8084d;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
-
-//when primary is #337ab7 we get
-@a: #122a3f;
-@a: #204d73;
-@a: #22527b;
-@a: #285f8f;
-@a: #2d6da3;
-@a: #337ab7;
-@a: #c7ddef;
-
-//when primary is darken(#428bca, 6.5%) we get 
-@a: #122b40;
-@a: #204d74;
-@a: #23527c;
-@a: #286090;
-@a: #2e6da4;
-@a: #337ab7;
-@a: #c7ddef;
 
 
 //== Scaffolding
@@ -62,13 +57,13 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
-@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-sans-serif:  "fs-me", Arial, sans-serif;
+//@font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          16px;
+@font-size-base:          18px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * .85)); // ~12px
 
@@ -80,14 +75,14 @@
 @font-size-h6:            ceil((@font-size-base * .85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.428571429; // 20/14
+@line-height-base:        1.571428571; // 22/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~22px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
-@headings-line-height:    1.1;
+@headings-line-height:    1.2;
 @headings-color:          @brand-primary; //inherit;
 
 
@@ -96,7 +91,7 @@
 //## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
 
 //** Load fonts from this directory.
-@icon-font-path:          "../fonts/";
+@icon-font-path:          "/resources/themes/fresh/fonts/";
 //** File name for all font files.
 @icon-font-name:          "glyphicons-halflings-regular";
 //** Element ID within SVG icon file.
@@ -377,7 +372,7 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    50px;
+@navbar-height:                    60px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
@@ -763,7 +758,7 @@
 //##
 
 //** Padding around the thumbnail image
-@thumbnail-padding:           4px;
+@thumbnail-padding:           0;
 //** Thumbnail background color
 @thumbnail-bg:                @body-bg;
 //** Thumbnail border color
