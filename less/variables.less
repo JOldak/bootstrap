@@ -168,15 +168,15 @@
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
-@btn-success-bg:                 @brand-success;
+@btn-success-bg:                 darken(@brand-success, 10%);
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
 @btn-info-color:                 #fff;
-@btn-info-bg:                    @brand-info;
+@btn-info-bg:                    darken(@brand-info, 10%);
 @btn-info-border:                darken(@btn-info-bg, 5%);
 
 @btn-warning-color:              #fff;
-@btn-warning-bg:                 @brand-warning;
+@btn-warning-bg:                 darken(@brand-warning, 10%);
 @btn-warning-border:             darken(@btn-warning-bg, 5%);
 
 @btn-danger-color:               #fff;
@@ -731,26 +731,47 @@
 @panel-default-text:          @gray-dark;
 @panel-default-border:        #ddd;
 @panel-default-heading-bg:    #f5f5f5;
+@panel-default-bg:            #fff;
+@panel-default-link:          @brand-primary;
+
+/* for all these coloured panels:
+ * header: white text
+ * header: main colour background
+ * border: main colour
+ * background: light version of colour
+ * text: dark
+ * links: main colour
+ */ 
 
 @panel-primary-text:          #fff;
 @panel-primary-border:        @brand-primary;
 @panel-primary-heading-bg:    @brand-primary;
+@panel-primary-link:          @brand-primary;
+@panel-primary-bg:            lighten(@brand-primary, 60%);
 
-@panel-success-text:          @state-success-text;
-@panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @state-success-bg;
+@panel-success-text:          #fff;
+@panel-success-border:        darken(@brand-success, 20%);
+@panel-success-heading-bg:    @brand-success;
+@panel-success-link:          @brand-success;
+@panel-success-bg:            lighten(@brand-success, 60%);
 
-@panel-info-text:             @state-info-text;
-@panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @state-info-bg;
+@panel-info-text:             #fff;
+@panel-info-border:           darken(@brand-info, 30%);
+@panel-info-heading-bg:       @panel-info-border;
+@panel-info-link:             @panel-info-border;
+@panel-info-bg:               lighten(@panel-info-border, 60%);
 
-@panel-warning-text:          @state-warning-text;
-@panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @state-warning-bg;
+@panel-warning-text:          #fff;
+@panel-warning-border:        darken(@brand-warning, 20%);
+@panel-warning-heading-bg:    @panel-warning-border;
+@panel-warning-link:          @panel-warning-border;
+@panel-warning-bg:            lighten(@panel-warning-border, 60%);
 
-@panel-danger-text:           @state-danger-text;
-@panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @state-danger-bg;
+@panel-danger-text:           #fff;
+@panel-danger-border:         darken(@brand-danger, 20%);
+@panel-danger-heading-bg:     @panel-danger-border;
+@panel-danger-link:           @panel-danger-border;
+@panel-danger-bg:             lighten(@panel-danger-border, 60%);
 
 
 //== Thumbnails
