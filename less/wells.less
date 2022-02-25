@@ -27,3 +27,17 @@
   padding: 9px;
   border-radius: @border-radius-small;
 }
+
+//override what's in the theme.css by being more specific
+.well.footer {
+  border-radius: 0 200px 0 0;
+  border-top: 20px solid;
+  border-right: 20px solid;
+  border-color: @wbg-teal;
+  box-shadow: none;
+  background: @wbg-purple;
+  background: linear-gradient(135deg, @wbg-purple, @wbg-purple2); 
+}
+.well.footer #footerText {
+  padding-right: 50px;  //so text doesn't hit curve
+}
