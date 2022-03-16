@@ -10,7 +10,8 @@
 //## Gray and brand colors for use across Bootstrap.
 
 @wbg-purple:            #543982;
-@wbg-purple2:           #8569bc;
+@wbg-purple2:           #7e61b8;  //darkened a touch for accessibility in links
+@wbg-purple3:           #8569bc;
 @wbg-coral:             #ba175e;
 @wbg-teal:              #2fbcae;
 
@@ -21,7 +22,7 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         @wbg-purple2;  //darken(#428bca, 6.5%); // #337ab7
+@brand-primary:         @wbg-purple;  //darken(#428bca, 6.5%); // #337ab7
 @brand-success:         #5cb85c;
 @brand-info:            @wbg-teal;    //#5bc0de;
 @brand-warning:         #f0ad4e;
@@ -38,7 +39,7 @@
 @text-color:            @gray-dark;
 
 //** Global textual link color.
-@link-color:            @brand-primary;
+@link-color:            @wbg-purple2;
 //** Link hover color set via `darken()` function.
 @link-hover-color:      @wbg-purple;  //darken(@link-color, 20%);
 //** Link hover decoration.
@@ -75,7 +76,7 @@
 @headings-font-family:    @font-family-sans-serif;
 @headings-font-weight:    bold;
 @headings-line-height:    1.1;
-@headings-color:          inherit;
+@headings-color:          @wbg-purple;
 
 
 //== Iconography
@@ -149,7 +150,7 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-font-weight:                300;
+@btn-font-weight:                400;
 
 @btn-default-color:              @text-color;
 @btn-default-bg:                 #fff;
@@ -494,7 +495,7 @@
 @jumbotron-padding:              30px;
 @jumbotron-color:                inherit;
 @jumbotron-bg:                   darken(@body-bg, 3%);
-@jumbotron-heading-color:        inherit;
+@jumbotron-heading-color:        @wbg-purple;
 @jumbotron-font-size:            ceil((@font-size-base * 1.5));
 @jumbotron-heading-font-size:    ceil((@font-size-base * 4.5));
 
@@ -859,7 +860,7 @@
 //** Abbreviations and acronyms border color
 @abbr-border-color:           @gray-light;
 //** Headings small color
-@headings-small-color:        @gray-light;
+@headings-small-color:        @wbg-purple2;
 //** Blockquote small color
 @blockquote-small-color:      @text-color;
 //** Blockquote font size
