@@ -4,7 +4,6 @@
 // Typography
 // --------------------------------------------------
 
-
 // Headings
 // -------------------------
 
@@ -13,7 +12,6 @@ h1, h2, h3, h4, h5, h6,
   font-family: @headings-font-family;
   font-weight: @headings-font-weight;
   line-height: @headings-line-height;
-  color: @headings-color;
 
   small,
   .small {
@@ -27,7 +25,8 @@ h1, .h1,
 h2, .h2,
 h3, .h3 {
   margin-top: @line-height-computed;
-  margin-bottom: (@line-height-computed / 2);
+  margin-bottom: @line-height-computed;
+  color: @headings-color;
 
   small,
   .small {
@@ -58,13 +57,13 @@ h6, .h6 { font-size: @font-size-h6; }
 // -------------------------
 
 p {
-  margin: 0 0 (@line-height-computed / 2);
+  margin: (@line-height-computed / 2) 0;
 }
 
 .lead {
   margin-bottom: @line-height-computed;
   font-size: floor((@font-size-base * 1.15));
-  font-weight: 300;
+  //font-weight: 300;
   line-height: 1.4;
 
   @media (min-width: @screen-sm-min) {
@@ -184,6 +183,22 @@ ol {
     display: inline-block;
     padding-right: 5px;
     padding-left: 5px;
+  }
+}
+
+.custom-bullet {
+  li {
+    display: block;
+
+    &::before {
+      content: "\e013";
+      font-family: "Glyphicons Halflings";
+      font-size: 16px;
+      position: relative;
+      margin-right: 10px;
+      top: 3px;
+      color: #00aeef;
+    }
   }
 }
 
