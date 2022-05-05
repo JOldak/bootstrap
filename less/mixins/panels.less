@@ -3,6 +3,10 @@
 .panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
   border-color: @border;
 
+  //a {
+  //  color: @border;
+  //}
+
   & > .panel-heading {
     color: @heading-text-color;
     background-color: @heading-bg-color;
@@ -20,5 +24,8 @@
     + .panel-collapse > .panel-body {
       border-bottom-color: @border;
     }
+  }
+  & > .list-group .list-group-item {
+    border-color: @border;
   }
 }
