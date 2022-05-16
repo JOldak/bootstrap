@@ -64,9 +64,9 @@
 @font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
 @font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4:            ceil((@font-size-base * 1.5));
-@font-size-h5:            ceil((@font-size-base * 1.25));
-@font-size-h6:            @font-size-base;
+@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5:            @font-size-base;
+@font-size-h6:            ceil((@font-size-base * .85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
 @line-height-base:        1.4375; // 23/16
@@ -77,7 +77,7 @@
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          #000; //@brand-primary; //inherit;
+@headings-color:          @brand-primary; //inherit;
 
 
 //== Iconography
@@ -111,9 +111,9 @@
 @line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
 @line-height-small:         1.5;
 
-@border-radius-base:        0;//4px;
-@border-radius-large:       0;//6px;
-@border-radius-small:       0;//3px;
+@border-radius-base:        4px;
+@border-radius-large:       6px;
+@border-radius-small:       3px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    #fff;
@@ -771,7 +771,7 @@
 //##
 
 @well-bg:                     #f5f5f5;
-@well-border:                 @well-bg; //darken(@well-bg, 7%);
+@well-border:                 darken(@well-bg, 7%);
 
 
 //== Badges
