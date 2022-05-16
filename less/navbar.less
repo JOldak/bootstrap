@@ -432,16 +432,13 @@
     @media (max-width: @grid-float-breakpoint-max) {
       // Dropdowns get custom display when collapsed
       .open .dropdown-menu {
-        background-color: @navbar-inverse-bg;
-        border-radius: 0;
-          
         > li > a {
-          color: @navbar-inverse-link-color;
+          color: @navbar-default-link-color;
           font-weight: bold;
           &:hover,
           &:focus {
-            color: @navbar-inverse-link-hover-color;
-            background-color: @navbar-inverse-link-hover-bg;
+            color: @navbar-default-link-hover-color;
+            background-color: @navbar-default-link-hover-bg;
             text-decoration: underline;
           }
         }
@@ -449,8 +446,8 @@
           &,
           &:hover,
           &:focus {
-            color: @navbar-inverse-link-active-color;
-            background-color: @navbar-inverse-link-active-bg;
+            color: @navbar-default-link-active-color;
+            background-color: @navbar-default-link-active-bg;
             text-decoration: underline;
           }
         }
