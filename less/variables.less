@@ -22,6 +22,24 @@
 @brand-warning:         #f0ad4e;
 @brand-danger:          #d9534f;
 
+//when primary is #337ab7 we get
+@a: #122a3f;
+@a: #204d73;
+@a: #22527b;
+@a: #285f8f;
+@a: #2d6da3;
+@a: #337ab7;
+@a: #c7ddef;
+
+//when primary is darken(#428bca, 6.5%) we get 
+@a: #122b40;
+@a: #204d74;
+@a: #23527c;
+@a: #286090;
+@a: #2e6da4;
+@a: #337ab7;
+@a: #c7ddef;
+
 
 //== Scaffolding
 //
@@ -50,21 +68,21 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          14px;
+@font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * .85)); // ~12px
 
 @font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
 @font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
-@font-size-h5:            @font-size-base;
-@font-size-h6:            ceil((@font-size-base * .85)); // ~12px
+@font-size-h3:            ceil((@font-size-base * 1.75)); // ~24px
+@font-size-h4:            ceil((@font-size-base * 1.5)); // ~18px
+@font-size-h5:            ceil((@font-size-base * 1.25)); // ~12px
+@font-size-h6:            @font-size-base;
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.428571429; // 20/14
+@line-height-base:        1.4375; // 23/16
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~23px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
@@ -202,7 +220,7 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             #66afe9;
+@input-border-focus:             @brand-primary; //#66afe9;
 
 //** Placeholder text color
 @input-color-placeholder:        #999;
