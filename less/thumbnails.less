@@ -12,8 +12,9 @@
   margin-bottom: @line-height-computed;
   line-height: @line-height-base;
   background-color: @thumbnail-bg;
-  border: 1px solid @thumbnail-border;
+  border: 0; //1px solid @thumbnail-border;
   border-radius: @thumbnail-border-radius;
+  overflow: hidden;
   .transition(border .2s ease-in-out);
 
   > img,

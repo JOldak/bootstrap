@@ -9,37 +9,25 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-base:              #000;
-@gray-darker:            lighten(@gray-base, 13.5%); // #222
-@gray-dark:              lighten(@gray-base, 20%);   // #333
-@gray:                   lighten(@gray-base, 33.5%); // #555
-@gray-light:             lighten(@gray-base, 45%);; //lighten(@gray-base, 46.7%); // #777
-@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+//RCO Forum colours
+@pink:    #ee0c6a;
+@pink:    #e40C66;  //as above but darkened a touch so it meets AA on white background
+@yellow:  #ffca02;
+@green:   #9bc338;
+@black:   #1e191a;
 
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
-@brand-success:         #3A833A; //#5cb85c;
-@brand-info:            #20809D; //#5bc0de;
-@brand-warning:         #B75E10; //#f0ad4e;
-@brand-danger:          #D4403A; //#d9534f;
+@gray-base:              @black;
+@gray-darker:            lighten(@gray-base, 13.5%); 
+@gray-dark:              lighten(@gray-base, 20%);
+@gray:                   lighten(@gray-base, 33.5%);
+@gray-light:             lighten(@gray-base, 45%);
+@gray-lighter:           lighten(@gray-base, 93.5%);
 
-//when primary is #337ab7 we get
-@a: #122a3f;
-@a: #204d73;
-@a: #22527b;
-@a: #285f8f;
-@a: #2d6da3;
-@a: #337ab7;
-@a: #c7ddef;
-
-//when primary is darken(#428bca, 6.5%) we get 
-@a: #122b40;
-@a: #204d74;
-@a: #23527c;
-@a: #286090;
-@a: #2e6da4;
-@a: #337ab7;
-@a: #c7ddef;
-
+@brand-primary:         @pink;
+@brand-success:         @green;
+@brand-info:            darken(@green, 10%);
+@brand-warning:         @yellow;
+@brand-danger:          darken(@pink, 10%);
 
 //== Scaffolding
 //
@@ -88,7 +76,7 @@
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
-@headings-color:          @brand-primary; //inherit;
+@headings-color:          inherit;
 
 
 //== Iconography
@@ -164,7 +152,7 @@
 
 @btn-font-weight:                normal;
 
-@btn-default-color:              #333;
+@btn-default-color:              @black;
 @btn-default-bg:                 #fff;
 @btn-default-border:             #ccc;
 
@@ -384,16 +372,16 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #666;
-@navbar-default-bg:                #f8f8f8;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-color:             #fff; //#666;
+@navbar-default-bg:                @black; //#f8f8f8;
+@navbar-default-border:            @black; //darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #666;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                #fff; //#666;
+@navbar-default-link-hover-color:          @yellow; //#333;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
-@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-active-color:         @yellow; //#555;
+@navbar-default-link-active-bg:            transparent; //darken(@navbar-default-bg, 6.5%);
 //@navbar-default-link-active-bg:          @brand-primary; //how to make this work with light/dark primary?
 @navbar-default-link-disabled-color:       #ccc;
 @navbar-default-link-disabled-bg:          transparent;
@@ -411,16 +399,16 @@
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #222;
+@navbar-inverse-color:                      #fff;
+@navbar-inverse-bg:                         @gray-dark;
 @navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
-@navbar-inverse-link-hover-color:           #fff;
+@navbar-inverse-link-color:                 #fff;
+@navbar-inverse-link-hover-color:           lighten(@green, 15%);
 @navbar-inverse-link-hover-bg:              transparent;
-@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-link-active-color:          lighten(@green, 15%);
+@navbar-inverse-link-active-bg:             transparent;
 @navbar-inverse-link-disabled-color:        #444;
 @navbar-inverse-link-disabled-bg:           transparent;
 
@@ -763,13 +751,13 @@
 //##
 
 //** Padding around the thumbnail image
-@thumbnail-padding:           4px;
+@thumbnail-padding:           20px;
 //** Thumbnail background color
-@thumbnail-bg:                @body-bg;
+@thumbnail-bg:                #eee; //@body-bg;
 //** Thumbnail border color
 @thumbnail-border:            #ddd;
 //** Thumbnail border radius
-@thumbnail-border-radius:     0; //@border-radius-base;
+@thumbnail-border-radius:     30px 0 0 0;
 
 //** Custom text color for thumbnail captions
 @thumbnail-caption-color:     @text-color;
@@ -781,7 +769,7 @@
 //
 //##
 
-@well-bg:                     #f5f5f5;
+@well-bg:                     #eee; //#f5f5f5;
 @well-border:                 darken(@well-bg, 7%);
 
 
