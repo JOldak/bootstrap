@@ -53,6 +53,8 @@
   &:extend(.clearfix all);
   -webkit-overflow-scrolling: touch;
 
+  background-color: @body-bg-dark;
+
   &.in {
     overflow-y: auto;
   }
@@ -148,6 +150,7 @@
   padding: @navbar-padding-vertical @navbar-padding-horizontal;
   font-size: @font-size-large;
   line-height: @line-height-computed;
+  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -180,8 +183,9 @@
   .navbar-vertical-align(34px);
   background-color: transparent;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid transparent;
-  border-radius: @border-radius-base;
+  //border: 1px solid transparent;
+  //border-radius: @border-radius-base;
+  border: none;
 
   // We remove the `outline` here, but later compensate by attaching `:hover`
   // styles to `:focus`.
@@ -212,13 +216,18 @@
 // the nav the full height of the horizontal nav (above 768px).
 
 .navbar-nav {
-  margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+  //margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+  margin: 0 -@navbar-padding-horizontal;
 
   > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
     line-height: @line-height-computed;
-  }
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+   }
 
   @media (max-width: @grid-float-breakpoint-max) {
     // Dropdowns get custom display when collapsed
@@ -238,6 +247,7 @@
         &:hover,
         &:focus {
           background-image: none;
+          background-color: red;
         }
       }
     }
@@ -398,7 +408,8 @@
       &:focus {
         color: @navbar-default-link-hover-color;
         background-color: @navbar-default-link-hover-bg;
-        text-decoration: underline;
+        //filter:brightness(95%);
+        text-decoration: none;
       }
     }
     > .active > a {
@@ -407,7 +418,15 @@
       &:focus {
         color: @navbar-default-link-active-color;
         background-color: @navbar-default-link-active-bg;
-        text-decoration: underline;
+        //filter: brightness(95%);
+      }
+    }
+    > .active.open > a {
+      &,
+      &:hover,
+      &:focus {
+        //remove active colour for parent of open dropdown
+        //filter: none;
       }
     }
     > .disabled > a {
@@ -416,6 +435,7 @@
       &:focus {
         color: @navbar-default-link-disabled-color;
         background-color: @navbar-default-link-disabled-bg;
+        //filter: brightness(110%);
       }
     }
 
@@ -434,12 +454,14 @@
       .open .dropdown-menu {
         > li > a {
           color: @navbar-default-link-color;
+          background-color: @navbar-default-bg;
           font-weight: bold;
+          text-decoration: underline;
           &:hover,
           &:focus {
             color: @navbar-default-link-hover-color;
             background-color: @navbar-default-link-hover-bg;
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
         > .active > a {
@@ -448,7 +470,7 @@
           &:focus {
             color: @navbar-default-link-active-color;
             background-color: @navbar-default-link-active-bg;
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
         > .disabled > a {
@@ -457,7 +479,7 @@
           &:focus {
             color: @navbar-default-link-disabled-color;
             background-color: @navbar-default-link-disabled-bg;
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
       }
@@ -535,7 +557,7 @@
       &:focus {
         color: @navbar-inverse-link-hover-color;
         background-color: @navbar-inverse-link-hover-bg;
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
     > .active > a {
@@ -544,7 +566,7 @@
       &:focus {
         color: @navbar-inverse-link-active-color;
         background-color: @navbar-inverse-link-active-bg;
-        text-decoration: underline;
+        text-decoration: none;
       }
     }
     > .disabled > a {
@@ -582,7 +604,7 @@
           &:focus {
             color: @navbar-inverse-link-hover-color;
             background-color: @navbar-inverse-link-hover-bg;
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
         > .active > a {
@@ -591,7 +613,7 @@
           &:focus {
             color: @navbar-inverse-link-active-color;
             background-color: @navbar-inverse-link-active-bg;
-            text-decoration: underline;
+            text-decoration: none;
           }
         }
         > .disabled > a {
@@ -620,7 +642,7 @@
 
   .navbar-collapse,
   .navbar-form {
-    border-color: darken(@navbar-inverse-bg, 7%);
+    border-color: dark-@navbar-inverse-bg;
   }
 
   .navbar-link {

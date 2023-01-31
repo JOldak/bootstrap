@@ -6,33 +6,33 @@
 .button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
-  border-color: @border;
+  //border-color: @border;
 
   &:focus,
   &.focus {
     color: @color;
-    background-color: darken(@background, 10%);
-    border-color: darken(@border, 25%);
+    background-color: dark-@background;
+    //border-color: dark- dark-@border;
   }
   &:hover {
     color: @color;
-    background-color: darken(@background, 10%);
-    border-color: darken(@border, 12%);
+    background-color: dark-@background;
+    //border-color: dark-@border;
   }
   &:active,
   &.active,
   .open > .dropdown-toggle& {
     color: @color;
-    background-color: darken(@background, 10%);
+    background-color: dark-@background;
     background-image: none;
-    border-color: darken(@border, 12%);
+    //border-color: dark-@border;
 
     &:hover,
     &:focus,
     &.focus {
       color: @color;
-      background-color: darken(@background, 17%);
-      border-color: darken(@border, 25%);
+      background-color: dark- dark-@background;
+      //border-color: dark- dark-@border;
     }
   }
   &.disabled,
@@ -42,7 +42,7 @@
     &:focus,
     &.focus {
       background-color: @background;
-      border-color: @border;
+      //border-color: @border;
     }
   }
 
