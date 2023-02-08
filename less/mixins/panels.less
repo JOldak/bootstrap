@@ -2,9 +2,12 @@
 
 .panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
   border-color: @border;
+  // use heading bg for entire panel in this theme (thus make it light), and black header text
+  background-color: @heading-bg-color;
 
   & > .panel-heading {
-    color: @heading-text-color;
+    //color: @heading-text-color;
+    color: @headings-color;
     background-color: @heading-bg-color;
     border-color: @heading-border;
 

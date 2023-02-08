@@ -1,6 +1,11 @@
 // List Groups
 
 .list-group-item-variant(@state; @background; @color) {
+
+  .panel-@{state} .list-group-item {
+    background-color: background-@background;
+  }
+
   .list-group-item-@{state} {
     color: @color;
     background-color: @background;

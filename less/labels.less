@@ -8,7 +8,8 @@
   font-size: 75%;
   font-weight: 700;
   line-height: 1;
-  color: @label-color;
+  color: @text-color;
+  background-color: @body-bg-darker;
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
@@ -18,7 +19,7 @@
   a& {
     &:hover,
     &:focus {
-      color: @label-link-hover-color;
+      //color: @label-link-hover-color;
       text-decoration: none;
       cursor: pointer;
     }
@@ -40,7 +41,7 @@
 // Contextual variations (linked labels get darker on :hover)
 
 .label-default {
-  .label-variant(@label-default-bg);
+  //.label-variant(@label-default-bg);
 }
 
 .label-primary {

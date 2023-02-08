@@ -142,9 +142,9 @@ output {
   color: @input-color;
   background-color: @input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-  border: 1px solid @input-border;
+  border: 2px solid @input-border;
   border-radius: @input-border-radius; // Note: This has no effect on <select>s in some browsers, due to the limited stylability of <select>s in CSS.
-  .box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
+  //.box-shadow(inset 0 1px 1px rgba(0, 0, 0, .075));
   .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
 
   // Customize the `:focus` state to imitate native WebKit styles.
@@ -417,14 +417,15 @@ output {
 }
 
 // Feedback states
+//usage: .form-control-validation(@text-color; @border-color; @background-color) {
 .has-success {
-  .form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+  .form-control-validation(@brand-success;);
 }
 .has-warning {
-  .form-control-validation(@state-warning-text; @state-warning-text; @state-warning-bg);
+  .form-control-validation(@brand-warning;);
 }
 .has-error {
-  .form-control-validation(@state-danger-text; @state-danger-text; @state-danger-bg);
+  .form-control-validation(@brand-danger;);
 }
 
 // Reposition feedback icon if input has visible label above

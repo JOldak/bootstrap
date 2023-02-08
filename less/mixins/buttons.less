@@ -6,13 +6,13 @@
 .button-variant(@color; @background; @border) {
   color: @color;
   background-color: @background;
-  //border-color: @border;
+  border-color: @border;
 
   &:focus,
   &.focus {
     color: @color;
     background-color: dark-@background;
-    //border-color: dark- dark-@border;
+    //border-color: dark-@border;
   }
   &:hover {
     color: @color;
@@ -31,8 +31,8 @@
     &:focus,
     &.focus {
       color: @color;
-      background-color: dark- dark-@background;
-      //border-color: dark- dark-@border;
+      background-color: dark-@background;
+      //border-color: dark-@border;
     }
   }
   &.disabled,

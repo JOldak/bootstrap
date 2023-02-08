@@ -58,7 +58,7 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          16px;
+@font-size-base:          18px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * .85)); // ~12px
 
@@ -70,14 +70,14 @@
 @font-size-h6:            @font-size-base;
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.6875; // 27/16  was 1.4375; // 23/16
+@line-height-base:        1.66667; // 30/18  was 1.4375; // 23/16
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~27px
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~32px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
 @headings-font-weight:    500;
-@headings-line-height:    1.3;
+@headings-line-height:    1.5;
 @headings-color:          @text-color; //@brand-primary; //inherit;
 
 
@@ -109,12 +109,12 @@
 @padding-xs-vertical:       1px;
 @padding-xs-horizontal:     5px;
 
-@line-height-large:         1.3333333; // extra decimals for Win 8.1 Chrome
+@line-height-large:         1.3333333; 
 @line-height-small:         1.5;
 
-@border-radius-base:        0;
-@border-radius-large:       0;
-@border-radius-small:       0;
+@border-radius-base:        8px;
+@border-radius-large:       12px;
+@border-radius-small:       6px;
 
 //** Global color for active items (e.g., navs or dropdowns).
 @component-active-color:    @body-bg;
@@ -155,30 +155,30 @@
 @btn-font-weight:                normal;
 
 @btn-default-color:              @text-color;
-@btn-default-bg:                 @body-bg-dark;
+@btn-default-bg:                 @body-bg;
 @btn-default-border:             @body-bg-darker;
 
-@btn-primary-color:              #fff;
+@btn-primary-color:              texton-@brand-primary;
 @btn-primary-bg:                 @brand-primary;
-@btn-primary-border:             @btn-primary-bg;
+@btn-primary-border:             @brand-primary;
 
-@btn-success-color:              #fff;
+@btn-success-color:              texton-@brand-success;
 @btn-success-bg:                 @brand-success;
-@btn-success-border:             @btn-success-bg;
+@btn-success-border:             @brand-success;
 
-@btn-info-color:                 #fff;
+@btn-info-color:                 texton-@brand-info;
 @btn-info-bg:                    @brand-info;
-@btn-info-border:                @btn-info-bg;
+@btn-info-border:                @brand-info;
 
-@btn-warning-color:              #fff;
+@btn-warning-color:              texton-@brand-warning;
 @btn-warning-bg:                 @brand-warning;
-@btn-warning-border:             @btn-warning-bg;
+@btn-warning-border:             @brand-warning;
 
-@btn-danger-color:               #fff;
+@btn-danger-color:               texton-@brand-danger;
 @btn-danger-bg:                  @brand-danger;
-@btn-danger-border:              @btn-danger-bg;
+@btn-danger-border:              @brand-danger;
 
-@btn-link-disabled-color:        @gray-light;
+@btn-link-disabled-color:        light-@text-color;
 
 // Allows for customizing button radius independently from global border radius
 @btn-border-radius-base:         @border-radius-base;
@@ -191,14 +191,14 @@
 //##
 
 //** `<input>` background color
-@input-bg:                       #fff;
+@input-bg:                       @body-bg-dark;
 //** `<input disabled>` background color
-@input-bg-disabled:              @gray-lighter;
+@input-bg-disabled:              @body-bg-darker;
 
 //** Text color for `<input>`s
-@input-color:                    @gray;
+@input-color:                    @text-color;
 //** `<input>` border color
-@input-border:                   @body-bg-dark;
+@input-border:                   @body-bg-darker;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -210,10 +210,10 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             @brand-primary; //#66afe9;
+@input-border-focus:             @brand-primary;
 
 //** Placeholder text color
-@input-color-placeholder:        #999;
+@input-color-placeholder:        light-@text-color;
 
 //** Default `.form-control` height
 @input-height-base:              (@line-height-computed + (@padding-base-vertical * 2) + 2);
@@ -244,9 +244,9 @@
 //** Background for the dropdown menu.
 @dropdown-bg:                    @body-bg;
 //** Dropdown menu `border-color`.
-@dropdown-border:                rgba(0, 0, 0, .15);
+@dropdown-border:                @body-bg-dark; //rgba(0, 0, 0, .15);
 //** Dropdown menu `border-color` **for IE8**.
-@dropdown-fallback-border:       #ccc;
+@dropdown-fallback-border:       @body-bg-dark;
 //** Divider color for between dropdown items.
 @dropdown-divider-bg:            @body-bg-dark;
 
@@ -269,7 +269,7 @@
 @dropdown-header-color:          @gray-light;
 
 //** Deprecated `@dropdown-caret-color` as of v3.1.0
-@dropdown-caret-color:           #000;
+//@dropdown-caret-color:           #000;
 
 
 //-- Z-index master list
@@ -460,20 +460,20 @@
 //##
 
 @pagination-color:                     @link-color;
-@pagination-bg:                        @body-bg-dark;
-@pagination-border:                    @body-bg-dark;
+@pagination-bg:                        @body-bg;
+@pagination-border:                    @body-bg-darker;
 
 @pagination-hover-color:               @link-hover-color;
 @pagination-hover-bg:                  @body-bg-light;
-@pagination-hover-border:              @body-bg-light;
+@pagination-hover-border:              @body-bg-darker;
 
 @pagination-active-color:              @body-bg;
 @pagination-active-bg:                 @brand-primary;
 @pagination-active-border:             @brand-primary;
 
-@pagination-disabled-color:            @gray-light;
-@pagination-disabled-bg:               #fff;
-@pagination-disabled-border:           #ddd;
+@pagination-disabled-color:            dark-@link-color;
+@pagination-disabled-bg:               @body-bg-darker;
+@pagination-disabled-border:           @body-bg-darker;
 
 
 //== Pager
@@ -508,22 +508,23 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text:             @brand-success;
-@state-success-bg:               light- light-@brand-success;  //#dff0d8;
-@state-success-border:           light- light-@brand-success;  //darken(spin(@state-success-bg, -10), 5%);
+//== done in appropriate sections as sometimes it's the bg that has the colour, and sometimes the text
+//@state-success-text:             light- light-@brand-success;
+//@state-success-bg:               @brand-success;  //#dff0d8;
+//@state-success-border:           @brand-success;  //darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                @brand-info;
-@state-info-bg:                  light- light-@brand-info;  //#d9edf7;
-@state-info-border:              light- light-@brand-info;  //darken(spin(@state-info-bg, -10), 7%);
+//@state-info-text:                light- light-@brand-info;
+//@state-info-bg:                  @brand-info;  //#d9edf7;
+//@state-info-border:              @brand-info;  //darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text:             @brand-warning;
-@state-warning-bg:               light- light-@brand-warning;  //#fcf8e3;
-@state-warning-border:           light- light-@brand-warning;  //darken(spin(@state-warning-bg, -10), 5%);
+//@state-warning-text:             light- light-@brand-warning;
+//@state-warning-bg:               @brand-warning;  //#fcf8e3;
+//@state-warning-border:           @brand-warning;  //darken(spin(@state-warning-bg, -10), 5%);
 
-@state-danger-text:              @brand-danger;
-@state-danger-bg:                light- light-@brand-danger;  //#f2dede;
-@state-danger-border:            light- light-@brand-danger;  //darken(spin(@state-danger-bg, -10), 5%);
-
+//@state-danger-text:              light- light-@brand-danger;
+//@state-danger-bg:                @brand-danger;  //#f2dede;
+//@state-danger-border:            @brand-danger;  //darken(spin(@state-danger-bg, -10), 5%);
+//##
 
 //== Tooltips
 //
@@ -577,7 +578,7 @@
 //##
 
 //** Default label background color
-@label-default-bg:            @gray-light;
+//**@label-default-bg:            dark-@body-bg;
 //** Primary label background color
 @label-primary-bg:            @brand-primary;
 //** Success label background color
@@ -590,9 +591,9 @@
 @label-danger-bg:             @brand-danger;
 
 //** Default label text color
-@label-color:                 #fff;
+//**@label-color:                 #fff;
 //** Default text color of a linked label
-@label-link-hover-color:      #fff;
+//**@label-link-hover-color:      #fff;
 
 
 //== Modals
@@ -608,18 +609,18 @@
 @modal-title-line-height:     @line-height-base;
 
 //** Background color of modal content area
-@modal-content-bg:                             #fff;
+@modal-content-bg:                             @body-bg;
 //** Modal content border color
-@modal-content-border-color:                   rgba(0, 0, 0, .2);
+@modal-content-border-color:                   @body-bg-dark;
 //** Modal content border color **for IE8**
-@modal-content-fallback-border-color:          #999;
+@modal-content-fallback-border-color:          @body-bg-dark;
 
 //** Modal backdrop background color
 @modal-backdrop-bg:           #000;
 //** Modal backdrop opacity
 @modal-backdrop-opacity:      .5;
 //** Modal header border color
-@modal-header-border-color:   #e5e5e5;
+@modal-header-border-color:   @body-bg-dark;
 //** Modal footer border color
 @modal-footer-border-color:   @modal-header-border-color;
 
@@ -636,21 +637,21 @@
 @alert-border-radius:         @border-radius-base;
 @alert-link-font-weight:      bold;
 
-@alert-success-bg:            @state-success-bg;
-@alert-success-text:          @state-success-text;
-@alert-success-border:        @state-success-border;
+@alert-success-bg:            @brand-success;
+@alert-success-text:          texton-@brand-success;
+@alert-success-border:        @brand-success;
 
-@alert-info-bg:               @state-info-bg;
-@alert-info-text:             @state-info-text;
-@alert-info-border:           @state-info-border;
+@alert-info-bg:               @brand-info;
+@alert-info-text:             texton-@brand-info;
+@alert-info-border:           @brand-info;
 
-@alert-warning-bg:            @state-warning-bg;
-@alert-warning-text:          @state-warning-text;
-@alert-warning-border:        @state-warning-border;
+@alert-warning-bg:            @brand-warning;
+@alert-warning-text:          texton-@brand-warning;
+@alert-warning-border:        @brand-warning;
 
-@alert-danger-bg:             @state-danger-bg;
-@alert-danger-text:           @state-danger-text;
-@alert-danger-border:         @state-danger-border;
+@alert-danger-bg:             @brand-danger;
+@alert-danger-text:           texton-@brand-danger;
+@alert-danger-border:         @brand-danger;
 
 
 //== Progress bars
@@ -718,35 +719,36 @@
 @panel-body-padding:          15px;
 @panel-heading-padding:       10px 15px;
 @panel-footer-padding:        @panel-heading-padding;
-@panel-border-radius:         0; //@border-radius-base;
+@panel-border-radius:         @border-radius-base;
 
 //** Border color for elements within panels
 @panel-inner-border:          #ddd;
 @panel-footer-bg:             #f5f5f5;
 
-@panel-default-text:          @text-color; //@gray-dark;
+// we actually use heading-bg for the whole panel, so make it a light version
+@panel-default-text:          @text-color;
 @panel-default-border:        @body-bg-dark;
 @panel-default-heading-bg:    @body-bg-dark;
 
-@panel-primary-text:          #fff;
-@panel-primary-border:        @brand-primary;
-@panel-primary-heading-bg:    @brand-primary;
+@panel-primary-text:          @brand-primary;
+@panel-primary-border:        background-@brand-primary;
+@panel-primary-heading-bg:    background-@brand-primary;
 
-@panel-success-text:          @state-success-text;
-@panel-success-border:        @state-success-border;
-@panel-success-heading-bg:    @state-success-bg;
+@panel-success-text:          @brand-success;
+@panel-success-border:        background-@brand-success;
+@panel-success-heading-bg:    background-@brand-success;
 
-@panel-info-text:             @state-info-text;
-@panel-info-border:           @state-info-border;
-@panel-info-heading-bg:       @state-info-bg;
+@panel-info-text:             @brand-info;
+@panel-info-border:           background-@brand-info;
+@panel-info-heading-bg:       background-@brand-info;
 
-@panel-warning-text:          @state-warning-text;
-@panel-warning-border:        @state-warning-border;
-@panel-warning-heading-bg:    @state-warning-bg;
+@panel-warning-text:          @brand-warning;
+@panel-warning-border:        background-@brand-warning;
+@panel-warning-heading-bg:    background-@brand-warning;
 
-@panel-danger-text:           @state-danger-text;
-@panel-danger-border:         @state-danger-border;
-@panel-danger-heading-bg:     @state-danger-bg;
+@panel-danger-text:           @brand-danger;
+@panel-danger-border:         background-@brand-danger;
+@panel-danger-heading-bg:     background-@brand-danger;
 
 
 //== Thumbnails
@@ -754,13 +756,13 @@
 //##
 
 //** Padding around the thumbnail image
-@thumbnail-padding:           4px;
+@thumbnail-padding:           8px;
 //** Thumbnail background color
-@thumbnail-bg:                @body-bg-light;
+@thumbnail-bg:                @body-bg-dark;
 //** Thumbnail border color
-@thumbnail-border:            @body-bg-light;
+@thumbnail-border:            @body-bg-dark;
 //** Thumbnail border radius
-@thumbnail-border-radius:     0; //@border-radius-base;
+@thumbnail-border-radius:     @border-radius-base;
 
 //** Custom text color for thumbnail captions
 @thumbnail-caption-color:     @text-color;
@@ -772,7 +774,7 @@
 //
 //##
 
-@well-bg:                     @body-bg-dark;
+@well-bg:                     @body-bg-darker;
 @well-border:                 @body-bg-darker;
 
 

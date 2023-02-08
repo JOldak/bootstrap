@@ -7,11 +7,11 @@
 
 // Base class
 .panel {
-  margin-bottom: @line-height-computed;
+  margin: @line-height-computed 0;
   background-color: @panel-bg;
   //border: 1px solid transparent;
   border-radius: @panel-border-radius;
-  .box-shadow(0 1px 1px rgba(0, 0, 0, .05));
+  //.box-shadow(0 1px 1px rgba(0, 0, 0, .05));
 }
 
 // Panel contents
@@ -35,7 +35,7 @@
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: ceil((@font-size-base * 1.125));
+  font-size: @font-size-h4; //ceil((@font-size-base * 1.125));
   color: inherit;
 
   > a,
@@ -96,7 +96,7 @@
 // Collapse space between when there's no additional content.
 .panel-heading + .list-group {
   .list-group-item:first-child {
-    border-top-width: 0;
+    //border-top-width: 0;
   }
 }
 .list-group + .panel-footer {
