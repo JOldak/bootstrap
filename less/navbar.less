@@ -145,7 +145,8 @@
 // Brand/project name
 
 .navbar-brand {
-  float: left;
+  //float: left;
+  display: inline-block;
   height: @navbar-height;
   padding: @navbar-padding-vertical @navbar-padding-horizontal;
   font-size: @font-size-large;
@@ -252,6 +253,9 @@
         &:focus {
           background-image: none;
         }
+      }
+      > li > ul > li > a {
+        padding: 0 45px;
       }
     }
   }

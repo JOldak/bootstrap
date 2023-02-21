@@ -2683,14 +2683,14 @@ output {
   outline: 0;
 }
 .form-control::-moz-placeholder {
-  color: light- text-colour;
+  color: light- light- text-colour;
   opacity: 1;
 }
 .form-control:-ms-input-placeholder {
-  color: light- text-colour;
+  color: light- light- text-colour;
 }
 .form-control::-webkit-input-placeholder {
-  color: light- text-colour;
+  color: light- light- text-colour;
 }
 .form-control::-ms-expand {
   background-color: transparent;
@@ -4297,7 +4297,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 1000;
 }
 .navbar-brand {
-  float: left;
+  display: inline-block;
   height: 100px;
   padding: 35px 15px;
   font-size: 23px;
@@ -4380,6 +4380,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
     background-image: none;
+  }
+  .navbar-nav .open .dropdown-menu > li > ul > li > a {
+    padding: 0 45px;
   }
 }
 @media (min-width: 999999999px) {
