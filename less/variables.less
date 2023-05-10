@@ -16,29 +16,11 @@
 @gray-light:             lighten(@gray-base, 45%);; //lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
-@brand-success:         #3A833A; //#5cb85c;
-@brand-info:            #20809D; //#5bc0de;
-@brand-warning:         #B75E10; //#f0ad4e;
-@brand-danger:          #D4403A; //#d9534f;
-
-//when primary is #337ab7 we get
-@a: #122a3f;
-@a: #204d73;
-@a: #22527b;
-@a: #285f8f;
-@a: #2d6da3;
-@a: #337ab7;
-@a: #c7ddef;
-
-//when primary is darken(#428bca, 6.5%) we get 
-@a: #122b40;
-@a: #204d74;
-@a: #23527c;
-@a: #286090;
-@a: #2e6da4;
-@a: #337ab7;
-@a: #c7ddef;
+@brand-primary:         #115E67; 
+@brand-success:         #FFA300;
+@brand-info:            #2DCCD3;
+@brand-warning:         #C98BDB;
+@brand-danger:          #FB637E;
 
 
 //== Scaffolding
@@ -62,7 +44,7 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif:  "Open Sans", Arial, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
@@ -85,7 +67,7 @@
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~23px
 
 //** By default, this inherits from the `<body>`.
-@headings-font-family:    inherit;
+@headings-font-family:    "Quicksand", Arial, sans-serif;
 @headings-font-weight:    500;
 @headings-line-height:    1.1;
 @headings-color:          @brand-primary; //inherit;
@@ -172,7 +154,7 @@
 @btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
-@btn-success-color:              #fff;
+@btn-success-color:              #333;
 @btn-success-bg:                 @brand-success;
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
@@ -384,15 +366,15 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #666;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-color:             #eee;
+@navbar-default-bg:                #115E67;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #666;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                #eee;
+@navbar-default-link-hover-color:          #fff;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
+@navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
 //@navbar-default-link-active-bg:          @brand-primary; //how to make this work with light/dark primary?
 @navbar-default-link-disabled-color:       #ccc;
@@ -405,23 +387,23 @@
 
 // Navbar toggle
 @navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-icon-bar-bg:        #eee;
 @navbar-default-toggle-border-color:       #ddd;
 
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #222;
+@navbar-inverse-color:                      #333;
+@navbar-inverse-bg:                         #FFA300;
 @navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
-@navbar-inverse-link-hover-color:           #fff;
+@navbar-inverse-link-color:                 #333;
+@navbar-inverse-link-hover-color:           #000;
 @navbar-inverse-link-hover-bg:              transparent;
 @navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 10%);
-@navbar-inverse-link-disabled-color:        #444;
+@navbar-inverse-link-active-bg:             lighten(@navbar-inverse-bg, 10%);
+@navbar-inverse-link-disabled-color:        #ccc;
 @navbar-inverse-link-disabled-bg:           transparent;
 
 // Inverted navbar brand label
@@ -763,7 +745,7 @@
 //##
 
 //** Padding around the thumbnail image
-@thumbnail-padding:           4px;
+@thumbnail-padding:           8px;
 //** Thumbnail background color
 @thumbnail-bg:                @body-bg;
 //** Thumbnail border color
