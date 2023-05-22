@@ -12,6 +12,7 @@
   margin-bottom: @line-height-computed;
   line-height: @line-height-base;
   background-color: @thumbnail-bg;
+  color: @text-color;
   border: 0;
   border-bottom: 4px solid @brand-primary;
   .transition(border .2s ease-in-out);
@@ -28,5 +29,15 @@
   .caption {
     padding: @thumbnail-caption-padding;
     color: @thumbnail-caption-color;
+  }
+
+  //for bromley thumbnails with no border, need to add some margin to the contenty bits
+  font-size: 90%;
+  .itembody,
+  .eventInfo {
+    margin: 0 10px
+  }
+  h3 {
+    margin-top: 20px !important;
   }
 }

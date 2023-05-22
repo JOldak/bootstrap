@@ -4,10 +4,11 @@
 // Variables
 // --------------------------------------------------
 
-//Sutton Mencap Pallette
+//Bromley Well Colours
 //primary
-@a: #a8084d;
-@a: #9c9A00;
+@a: #1a78ba;
+@a: #34b575;
+
 //secondary
 @a: #bed600;
 @a: #e6b012;
@@ -29,8 +30,8 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         #a8084d;
-@brand-success:         #9c9A00;
+@brand-primary:         #1a78ba;
+@brand-success:         darken(#34b575, 5%);
 @brand-info:            #7aabde;
 @brand-warning:         #e6b012;
 @brand-danger:          #dc0451;
@@ -57,13 +58,13 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "fs-me", Arial, sans-serif;
+@font-family-sans-serif:  "Poppins", sans-serif;
 //@font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          18px;
+@font-size-base:          16px;
 @font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
 @font-size-small:         ceil((@font-size-base * .85)); // ~12px
 
@@ -75,13 +76,13 @@
 @font-size-h6:            ceil((@font-size-base * .85)); // ~12px
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.5; // 27/18
+@line-height-base:        1.4375; // 23/16
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~27px
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~23px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
-@headings-font-weight:    600;
+@headings-font-weight:    bold;
 @headings-line-height:    1.2;
 @headings-color:          @brand-primary; //inherit;
 
@@ -157,18 +158,19 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-font-weight:                normal;
+@btn-font-weight:                bold;
 
 @btn-default-color:              #333;
 @btn-default-bg:                 #fff;
 @btn-default-border:             #ccc;
 
+//swap success/primary so buttons are usually green
 @btn-primary-color:              #fff;
-@btn-primary-bg:                 @brand-primary;
+@btn-primary-bg:                 @brand-success;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
 @btn-success-color:              #fff;
-@btn-success-bg:                 darken(@brand-success, 10%);
+@btn-success-bg:                 @brand-primary;
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
 @btn-info-color:                 #fff;
@@ -372,25 +374,25 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    60px;
+@navbar-height:                    50px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #666;
-@navbar-default-bg:                #f8f8f8;
+@navbar-default-color:             #bbb;
+@navbar-default-bg:                @brand-primary;
 @navbar-default-border:            darken(@navbar-default-bg, 6.5%);
 
 // Navbar links
-@navbar-default-link-color:                #666;
-@navbar-default-link-hover-color:          #333;
+@navbar-default-link-color:                #fff;
+@navbar-default-link-hover-color:          #fff;
 @navbar-default-link-hover-bg:             transparent;
-@navbar-default-link-active-color:         #555;
+@navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
 //@navbar-default-link-active-bg:          @brand-primary; //how to make this work with light/dark primary?
-@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-color:       #888;
 @navbar-default-link-disabled-bg:          transparent;
 
 // Navbar brand label
@@ -399,24 +401,24 @@
 @navbar-default-brand-hover-bg:            transparent;
 
 // Navbar toggle
-@navbar-default-toggle-hover-bg:           #ddd;
-@navbar-default-toggle-icon-bar-bg:        #888;
-@navbar-default-toggle-border-color:       #ddd;
+@navbar-default-toggle-hover-bg:           #fff;
+@navbar-default-toggle-icon-bar-bg:        #eee;
+@navbar-default-toggle-border-color:       #eee;
 
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      lighten(@gray-light, 15%);
-@navbar-inverse-bg:                         #222;
-@navbar-inverse-border:                     darken(@navbar-inverse-bg, 10%);
+@navbar-inverse-color:                      #bbb;
+@navbar-inverse-bg:                         @brand-success;
+@navbar-inverse-border:                     darken(@navbar-inverse-bg, 6.5%);
 
 // Inverted navbar links
-@navbar-inverse-link-color:                 lighten(@gray-light, 15%);
+@navbar-inverse-link-color:                 #fff;
 @navbar-inverse-link-hover-color:           #fff;
 @navbar-inverse-link-hover-bg:              transparent;
-@navbar-inverse-link-active-color:          @navbar-inverse-link-hover-color;
-@navbar-inverse-link-active-bg:             darken(@brand-info, 10%); //darken(@navbar-inverse-bg, 10%);
-@navbar-inverse-link-disabled-color:        #444;
+@navbar-inverse-link-active-color:          #fff;
+@navbar-inverse-link-active-bg:             darken(@navbar-inverse-bg, 6.5%);
+@navbar-inverse-link-disabled-color:        #888;
 @navbar-inverse-link-disabled-bg:           transparent;
 
 // Inverted navbar brand label
@@ -779,11 +781,11 @@
 //##
 
 //** Padding around the thumbnail image
-@thumbnail-padding:           0;
+@thumbnail-padding:           0 0 10px 0;
 //** Thumbnail background color
-@thumbnail-bg:                @body-bg;
+@thumbnail-bg:                #fff;
 //** Thumbnail border color
-@thumbnail-border:            #ddd;
+@thumbnail-border:            #fff;
 //** Thumbnail border radius
 @thumbnail-border-radius:     0; //@border-radius-base;
 
