@@ -3650,6 +3650,7 @@ tbody.collapse.in {
   font-weight: 400;
   line-height: 1.5;
   color: #333333;
+  text-decoration: none;
   white-space: nowrap;
 }
 .dropdown-menu > li > a:hover,
@@ -3658,6 +3659,9 @@ tbody.collapse.in {
   text-decoration: none;
   background-color: #f5f5f5;
 }
+.dropdown-menu > .active > a {
+  text-decoration: none;
+}
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
@@ -3665,6 +3669,9 @@ tbody.collapse.in {
   text-decoration: none;
   background-color: #115E67;
   outline: 0;
+}
+.dropdown-menu > .disabled > a {
+  text-decoration: none;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -4687,7 +4694,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #000;
-  background-color: transparent;
+  background-color: #ffb533;
   text-decoration: underline;
 }
 .navbar-inverse .navbar-nav > .active > a,
@@ -4723,7 +4730,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #000;
-    background-color: transparent;
+    background-color: #ffb533;
     text-decoration: underline;
   }
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
@@ -4898,6 +4905,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .pager li > a,
 .pager li > span {
+  text-decoration: none;
   display: inline-block;
   padding: 5px 14px;
   background-color: #fff;
@@ -5389,6 +5397,7 @@ a.thumbnail.active {
 a.list-group-item,
 button.list-group-item {
   color: #555;
+  text-decoration: none;
 }
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
@@ -5928,6 +5937,7 @@ button.list-group-item-danger.active:focus {
   line-height: 1;
   color: #000;
   text-shadow: 0 1px 0 #fff;
+  text-decoration: none;
   filter: alpha(opacity=20);
   opacity: 0.2;
 }
@@ -6408,6 +6418,7 @@ button.close {
   color: #fff;
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  text-decoration: none;
   background-color: rgba(0, 0, 0, 0);
   filter: alpha(opacity=50);
   opacity: 0.5;
