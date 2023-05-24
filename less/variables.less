@@ -68,8 +68,8 @@
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    "Quicksand", Arial, sans-serif;
-@headings-font-weight:    500;
-@headings-line-height:    1.1;
+@headings-font-weight:    600;
+@headings-line-height:    1.6;
 @headings-color:          @brand-primary; //inherit;
 
 
@@ -144,7 +144,8 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-font-weight:                normal;
+@btn-font-family:                @headings-font-family;
+@btn-font-weight:                600;
 
 @btn-default-color:              #333;
 @btn-default-bg:                 #fff;
@@ -154,7 +155,7 @@
 @btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             darken(@btn-primary-bg, 5%);
 
-@btn-success-color:              #333;
+@btn-success-color:              #fff;
 @btn-success-bg:                 @brand-success;
 @btn-success-border:             darken(@btn-success-bg, 5%);
 
@@ -373,7 +374,7 @@
 // Navbar links
 @navbar-default-link-color:                #eee;
 @navbar-default-link-hover-color:          #fff;
-@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-hover-bg:             darken(@navbar-default-bg, 6.5%);
 @navbar-default-link-active-color:         #fff;
 @navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
 //@navbar-default-link-active-bg:          @brand-primary; //how to make this work with light/dark primary?

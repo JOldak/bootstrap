@@ -3,6 +3,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+/* regular open sans for body, semibold quicksand for headers and buttons */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -14,16 +15,9 @@
 @font-face {
   font-family: 'Quicksand';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkP8o18E.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Quicksand';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkM0o18E.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/quicksand/v30/6xK-dSZaM9iE8KbpRA_LJ3z8mH9BOJvgkCEv18E.ttf) format('truetype');
 }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -1206,8 +1200,8 @@ h6,
 .h5,
 .h6 {
   font-family: "Quicksand", Arial, sans-serif;
-  font-weight: 500;
-  line-height: 1.1;
+  font-weight: 600;
+  line-height: 1.6;
   color: #115E67;
 }
 h1 small,
@@ -3126,7 +3120,8 @@ select[multiple].input-lg {
 .btn {
   display: inline-block;
   margin-bottom: 0;
-  font-weight: normal;
+  font-weight: 600;
+  font-family: "Quicksand", Arial, sans-serif;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -3286,25 +3281,25 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #fff;
 }
 .btn-success {
-  color: #333;
+  color: #fff;
   background-color: #FFA300;
   border-color: #e69300;
 }
 .btn-success:focus,
 .btn-success.focus {
-  color: #333;
+  color: #fff;
   background-color: #cc8200;
   border-color: #664100;
 }
 .btn-success:hover {
-  color: #333;
+  color: #fff;
   background-color: #cc8200;
   border-color: #a86c00;
 }
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
-  color: #333;
+  color: #fff;
   background-color: #cc8200;
   background-image: none;
   border-color: #a86c00;
@@ -3318,7 +3313,7 @@ fieldset[disabled] .btn-primary.focus {
 .btn-success:active.focus,
 .btn-success.active.focus,
 .open > .dropdown-toggle.btn-success.focus {
-  color: #333;
+  color: #fff;
   background-color: #a86c00;
   border-color: #664100;
 }
@@ -3336,7 +3331,7 @@ fieldset[disabled] .btn-success.focus {
 }
 .btn-success .badge {
   color: #FFA300;
-  background-color: #333;
+  background-color: #fff;
 }
 .btn-info {
   color: #fff;
@@ -4589,7 +4584,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #fff;
-  background-color: transparent;
+  background-color: #0c444b;
   text-decoration: underline;
 }
 .navbar-default .navbar-nav > .active > a,
@@ -4618,7 +4613,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #fff;
-    background-color: transparent;
+    background-color: #0c444b;
     text-decoration: underline;
   }
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
