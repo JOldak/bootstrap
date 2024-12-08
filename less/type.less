@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: @line-height-computed;
+  margin-top: (@line-height-computed * 1.5);
   margin-bottom: (@line-height-computed / 2);
 
   small,
@@ -37,7 +37,7 @@ h3, .h3 {
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: (@line-height-computed * 0.85);
+  margin-top: (@line-height-computed * 1.2);
   margin-bottom: (@line-height-computed / 2);
 
   small,
@@ -48,9 +48,18 @@ h6, .h6 {
 
 h1, .h1 { font-size: @font-size-h1; }
 h2, .h2 { font-size: @font-size-h2; }
-h3, .h3 { font-size: @font-size-h3; }
-h4, .h4 { font-size: @font-size-h4; }
-h5, .h5 { font-size: @font-size-h5; }
+h3, .h3 {
+  font-size: @font-size-h3;
+  color: @kva-blue;
+}
+h4, .h4 {
+  font-size: @font-size-h4;
+  color: @kva-orange;
+}
+h5, .h5 {
+  font-size: @font-size-h5;
+  color: @kva-grey;
+}
 h6, .h6 { font-size: @font-size-h6; }
 
 
@@ -249,6 +258,8 @@ blockquote {
   margin: 0 0 @line-height-computed;
   font-size: @blockquote-font-size;
   border-left: 5px solid @blockquote-border-color;
+  color: @blockquote-color;
+  font-style: italic;
 
   p,
   ul,
@@ -284,6 +295,7 @@ blockquote.pull-right {
   text-align: right;
   border-right: 5px solid @blockquote-border-color;
   border-left: 0;
+  color: @blockquote-color;
 
   // Account for citation
   footer,
