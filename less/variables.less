@@ -7,7 +7,7 @@
 //Bromley Well Colours
 //primary
 @a: #1a78ba;
-@a: #34b575;
+@a: #3BA46F;
 
 //secondary
 @a: #bed600;
@@ -30,8 +30,10 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
+// @brand-primary:         darken(#1a78ba,5%);  //to increse contrast against #fff
+// @brand-success:         darken(#3BA46F,5%);
 @brand-primary:         #1a78ba;
-@brand-success:         darken(#34b575, 5%);
+@brand-success:         #3BA46F;
 @brand-info:            #7aabde;
 @brand-warning:         #e6b012;
 @brand-danger:          #dc0451;
@@ -64,26 +66,26 @@
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          16px;
-@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small:         ceil((@font-size-base * .85)); // ~12px
+@font-size-base:          18px;
+@font-size-large:         ceil((@font-size-base * 1.25));
+@font-size-small:         ceil((@font-size-base * .85));
 
-@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
-@font-size-h5:            @font-size-base;
-@font-size-h6:            ceil((@font-size-base * .85)); // ~12px
+@font-size-h1:            floor((@font-size-base * 2.6)); 
+@font-size-h2:            floor((@font-size-base * 2.15)); 
+@font-size-h3:            ceil((@font-size-base * 1.75)); 
+@font-size-h4:            ceil((@font-size-base * 1.5));
+@font-size-h5:            ceil((@font-size-base * 1.25));
+@font-size-h6:            @font-size-base;
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.4375; // 23/16
+@line-height-base:        1.5; // 27/18
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~23px
+@line-height-computed:    floor((@font-size-base * @line-height-base)); 
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    inherit;
 @headings-font-weight:    bold;
-@headings-line-height:    1.2;
+@headings-line-height:    1.6;
 @headings-color:          @brand-primary; //inherit;
 
 
@@ -159,6 +161,7 @@
 //## For each of Bootstrap's buttons, define text, background and border color.
 
 @btn-font-weight:                bold;
+@btn-font-size:                  19px;
 
 @btn-default-color:              #333;
 @btn-default-bg:                 #fff;
@@ -374,12 +377,13 @@
 //##
 
 // Basics of a navbar
-@navbar-height:                    50px;
+@navbar-height:                    56px;
 @navbar-margin-bottom:             @line-height-computed;
 @navbar-border-radius:             @border-radius-base;
 @navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
+@navbar-font-size:                 20px;
 
 @navbar-default-color:             #bbb;
 @navbar-default-bg:                @brand-primary;
