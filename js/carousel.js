@@ -211,13 +211,20 @@
     var $this   = $(this)
     var href    = $this.attr('href')
     if (href) {
-      href = href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+      // only allow target setting via href if it starts with # (better is to use data-target)
+      // Fixes CVE-2024-6484
+      if (/^#/.test(href)) {
+        href = href.replace(/.*(?=#[^\s]+$)/, '')
+      } else {
+        href = null
+      }
     }
 
     var target  = $this.attr('data-target') || href
     var $target = $(document).find(target)
 
-    if (!$target.hasClass('carousel')) return
+    // don't follow the link if the target isn't found
+    if (!$target.hasClass('carousel')) return false
 
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
