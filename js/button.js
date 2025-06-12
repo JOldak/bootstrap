@@ -24,6 +24,17 @@
   Button.DEFAULTS = {
     loadingText: 'loading...'
   }
+  
+  Button.prototype.sanitize = function (unsafeText) {
+    // loading/etc text should just be plain text not html - escape it to prevent XSS
+    // Fixes CVE-2024-6485
+    return unsafeText
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
 
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
@@ -37,7 +48,7 @@
 
     // push to event loop to allow forms to submit
     setTimeout($.proxy(function () {
-      $el[val](data[state] == null ? this.options[state] : data[state])
+      $el[val](data[state] == null ? this.options[state] : this.sanitize(data[state]))
 
       if (state == 'loadingText') {
         this.isLoading = true
