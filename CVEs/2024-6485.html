@@ -38,7 +38,7 @@
 
         <button class="btn btn-primary string-test"
             data-foobar-text="<span>Loading XSS</span><script>alert('XSS Foobar')</script>" type="button">
-            Click Me
+            <i>Click Me</i>
         </button>
 
         <br>
@@ -55,6 +55,11 @@
                 var someUnsanitizedText = '<img src=x onerror=alert("Vulnerable!")>'
                 $(this).data('loadingText', someUnsanitizedText)
                 $(this).button('loading')
+                    .delay(1000)
+                    .queue(function () {
+                        $(this).button('reset');
+                        $(this).dequeue();
+                    });
             })
 
             $('.btn-xss').click(function () {
@@ -90,7 +95,12 @@
             $('.input-test').click(function () {
                 var inputValue = $('#firstName').val();
                 $(this).data('loadingText', inputValue);
-                $(this).button('loading', inputValue);
+                $(this).button('loading', inputValue)
+                    .delay(1000)
+                    .queue(function () {
+                        $(this).button('reset');
+                        $(this).dequeue();
+                    });;
             });
         });
     </script>
