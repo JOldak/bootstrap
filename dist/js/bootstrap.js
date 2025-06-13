@@ -1,6 +1,6 @@
 /*!
- * Bootstrap v3.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 Twitter, Inc.
+ * Bootstrap v3.4.2 (https://getbootstrap.com/)
+ * Copyright 2011-2025 Twitter, Inc.
  * Licensed under the MIT license
  */
 
@@ -21,7 +21,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#transitions
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -81,7 +81,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#alerts
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -177,7 +177,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#buttons
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -198,6 +198,17 @@ if (typeof jQuery === 'undefined') {
   Button.DEFAULTS = {
     loadingText: 'loading...'
   }
+  
+  Button.prototype.sanitize = function (unsafeText) {
+    // loading/etc text should just be plain text not html - escape it to prevent XSS
+    // Fixes CVE-2024-6485
+    return unsafeText
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
 
   Button.prototype.setState = function (state) {
     var d    = 'disabled'
@@ -211,7 +222,7 @@ if (typeof jQuery === 'undefined') {
 
     // push to event loop to allow forms to submit
     setTimeout($.proxy(function () {
-      $el[val](data[state] == null ? this.options[state] : data[state])
+      $el[val](data[state] == null ? this.options[state] : this.sanitize(data[state]))
 
       if (state == 'loadingText') {
         this.isLoading = true
@@ -303,7 +314,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#carousel
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -511,13 +522,20 @@ if (typeof jQuery === 'undefined') {
     var $this   = $(this)
     var href    = $this.attr('href')
     if (href) {
-      href = href.replace(/.*(?=#[^\s]+$)/, '') // strip for ie7
+      // only allow target setting via href if it starts with # (better is to use data-target)
+      // Fixes CVE-2024-6484
+      if (/^#/.test(href)) {
+        href = href.replace(/.*(?=#[^\s]+$)/, '')
+      } else {
+        href = null
+      }
     }
 
     var target  = $this.attr('data-target') || href
     var $target = $(document).find(target)
 
-    if (!$target.hasClass('carousel')) return
+    // don't follow the link if the target isn't found
+    if (!$target.hasClass('carousel')) return false
 
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
@@ -550,7 +568,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#collapse
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 /* jshint latedef: false */
@@ -763,7 +781,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#dropdowns
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -929,7 +947,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#modals
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -1289,7 +1307,7 @@ if (typeof jQuery === 'undefined') {
  * Inspired by the original jQuery.tipsy by Jason Frame
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 +function ($) {
@@ -1392,9 +1410,11 @@ if (typeof jQuery === 'undefined') {
       return sanitizeFn(unsafeHtml)
     }
 
-    // IE 8 and below don't support createHTMLDocument
+    // IE 8 and below don't support createHTMLDocument, so just reject the HTML completely.
+    // Fixes CVE-2025-1647 at the expense of IE8 support.
+    // (we could add in DOMPurify or similar if we need IE8 support)
     if (!document.implementation || !document.implementation.createHTMLDocument) {
-      return unsafeHtml
+      return '';
     }
 
     var createdDocument = document.implementation.createHTMLDocument('sanitization')
@@ -1966,7 +1986,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#popovers
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -2090,7 +2110,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#scrollspy
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -2263,7 +2283,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#tabs
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 
@@ -2419,7 +2439,7 @@ if (typeof jQuery === 'undefined') {
  * https://getbootstrap.com/docs/3.4/javascript/#affix
  * ========================================================================
  * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/v3-dev/LICENSE)
  * ======================================================================== */
 
 

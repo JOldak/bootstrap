@@ -1383,6 +1383,16 @@ if (typeof jQuery === 'undefined') {
     return false
   }
 
+  function emergencySanitizeHtml(unsafeHtml) {
+    // a basic sanitization that escapes some key characters, to use if createHtmlDocument is not available
+    return unsafeHtml
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/&/g, "&amp;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
     if (unsafeHtml.length === 0) {
       return unsafeHtml
@@ -1394,7 +1404,7 @@ if (typeof jQuery === 'undefined') {
 
     // IE 8 and below don't support createHTMLDocument
     if (!document.implementation || !document.implementation.createHTMLDocument) {
-      return unsafeHtml
+      return emergencySanitizeHtml(unsafeHtml)
     }
 
     var createdDocument = document.implementation.createHTMLDocument('sanitization')

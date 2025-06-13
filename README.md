@@ -11,6 +11,15 @@ Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and
 
 To get started, check out <https://getbootstrap.com/>!
 
+## NOTE
+
+This is a fork of Bootstrap 3.4.1 with patches for vulnerability fixes:
+
+* CVE-2024-6484
+* CVE-2024-6485
+* CVE-2025-1647
+
+I have bumped the version number in package.json, bootstrap.less, and theme.less (and hence in the compiled bootstrap.css).
 
 ## Table of contents
 
