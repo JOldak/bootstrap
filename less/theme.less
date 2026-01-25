@@ -20,7 +20,7 @@
 
 // Common styles
 .btn-default,
-.btn-primary,
+.btn-primary, .button,
 .btn-success,
 .btn-info,
 .btn-warning,
@@ -81,7 +81,7 @@
 }
 
 // Common styles
-.btn {
+.btn, .button {
   // Remove the gradient for the pressed/active state
   &:active,
   &.active {
@@ -95,7 +95,7 @@
   text-shadow: 0 1px 0 #fff;
   border-color: #ccc;
 }
-.btn-primary { .btn-styles(@btn-primary-bg); }
+.btn-primary, .button { .btn-styles(@btn-primary-bg); }
 .btn-success { .btn-styles(@btn-success-bg); }
 .btn-info    { .btn-styles(@btn-info-bg); }
 .btn-warning { .btn-styles(@btn-warning-bg); }
